@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            width: 100%;
+            margin: auto auto auto auto;
+        }
+
+      </style>
+</head>
+<body>
+    <div class="container">
+        <label for="nilai1">Nilai 1</label>
+        <input type="text" id="nilai1"><br>
+
+        <label for="nilai2">Nilai 2</label>
+        <input type="text" id="nilai2"><br>
+
+        <label for="operator">Operator</label>
+        <select id="operator">
+            <option value="tambah">Penjumlahan (+)</option>
+            <option value="kurang">Pengurangan (-)</option>
+            <option value="kali">Perkalian (*)</option>
+            <option value="bagi">Pembagian (/)</option>
+        </select><br>
+
+        <label for="hasil">Hasil Operasi</label>
+        <input type="text" id="hasil" readonly><br>
+
+        <button onclick="hitung()">Hitung</button>
+    </div>
+    <script>
+        function hitung() {
+            var nilai1 = document.getElementById("nilai1").value;
+            var nilai2 = document.getElementById("nilai2").value;
+            var operator = document.getElementById("operator").value;
+
+            var hasil;
+            switch (operator) {
+                case "tambah":
+                    hasil = parseInt(nilai1) + parseInt(nilai2);
+                    break;
+                case "kurang":
+                    hasil = parseInt(nilai1) - parseInt(nilai2);
+                    break;
+                case "kali":
+                    hasil = parseInt(nilai1) * parseInt(nilai2);
+                    break;
+                case "bagi":
+                    hasil = parseInt(nilai1) / parseInt(nilai2);
+                    break;
+                default:
+                    alert("Operator tidak valid!");
+                    return;
+            }
+
+            document.getElementById("hasil").value = hasil;
+        }
+    </script>
+</body>
+</html>
